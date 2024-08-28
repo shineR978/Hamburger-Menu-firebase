@@ -1,0 +1,275 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.off-screen-menu {
+  background-color: black;
+  height: 100vh;
+  width: 100%;
+  max-width: 300px;
+  position: fixed;
+  top: 0;
+  right: -450px; // 初始狀態下菜單在屏幕外 active 類存在時，菜單滑入
+  display: flex;
+  flex-direction: column;
+
+  font-size: 3rem;
+  transition: right 0.5s ease; // 只改變 right 屬性
+  h3 {
+    color: white;
+    font-size: 35px;
+    margin: 20px 20px;
+  }
+  .border-menu {
+    border-bottom: 1px solid white;
+    margin: 0 20px;
+  }
+  ul {
+    padding: 5px 0;
+    margin-bottom: 0;
+    li {
+      list-style-type: none;
+      color: white;
+      margin: 10px 20px;
+      font-size: 20px;
+      border: 1px solid white;
+      padding: 10px;
+      cursor: pointer;
+      a {
+        margin: 0 5px;
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        font-style: normal; /* 確保文字不顯示為斜體 */
+      }
+    }
+  }
+  div.menu-icon {
+    display: flex;
+    margin-left: 20px;
+    justify-content: center;
+
+    .bi {
+      color: white;
+      font-size: 20px;
+      opacity: 0.5;
+      margin: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+.off-screen-menu.active {
+  position: fixed; // 修改這裡
+  z-index: 3;
+  right: 0; // 當 active 類存在時，菜單滑入屏幕
+}
+
+nav {
+  padding: 1rem;
+  display: flex;
+  background-color: black;
+  .ham-menu {
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    position: relative;
+    cursor: pointer;
+    span {
+      height: 5px;
+      width: 100%;
+      background-color: white;
+      border-radius: 25px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.3s ease;
+    }
+    .bi-facebook {
+      color: white;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+main {
+  section.backgroud-img {
+    min-height: 70vh;
+    background-image: url("./photo/big-round-table-with-different-side-dishes-it-with-soup-middle.jpg");
+    background-size: cover;
+    background-position: center;
+    transition: 2s ease-in-out;
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div.filter {
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      min-height: 70vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex; // 添加這行
+      justify-content: center; // 添加這行
+      align-items: center; // 添加這行
+    }
+
+    h3 {
+      color: white;
+      font-size: 2.5rem;
+      z-index: 1; // 確保 h3 在 filter 之上
+    }
+  }
+}
+
+// 控制子元素 1 and 3 的位置
+// 通常使用在漢堡菜單圖標
+.ham-menu span:nth-child(1) {
+  top: 15%;
+  transform: translateX(-50%);
+}
+.ham-menu span:nth-child(3) {
+  top: 75%;
+  transform: translateX(-50%);
+}
+
+// 漢堡菜單圖標轉換為一個 "X" 形狀
+.ham-menu.active {
+  position: fixed; // 修改這裡
+  z-index: 3;
+  top: 1rem; // 添加這裡，確保它在視窗內的固定位置
+  right: 1rem; // 添加這裡，確保它在視窗內的固定位置
+}
+
+.ham-menu.active span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+// 使其完全透明
+.ham-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+.ham-menu.active span:nth-child(3) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+div.products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 10px;
+
+  .product {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    margin: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 0 0px 10px rgba(150, 150, 150, 0.9);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+
+      .text {
+        font-size: 20px;
+        text-align: center;
+      }
+    }
+
+    &:hover .overlay {
+      opacity: 1;
+    }
+  }
+}
+
+div.information {
+  display: flex;
+  justify-content: space-around;
+
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: rgb(50, 50, 50);
+
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  min-height: 150px;
+  .address {
+    // border: 1px solid yellowgreen;
+    width: 250px;
+
+    margin: 5px 5px;
+    .bottom-address {
+      margin: 5px 5px;
+      padding-left: 1rem;
+      color: white;
+      li {
+        list-style-type: none;
+      }
+      p {
+        margin-bottom: 0px;
+      }
+      i.bi {
+        display: flex; /* 使用 flexbox 佈局 */
+        align-items: center; /* 垂直居中對齊 */
+        text-decoration: none;
+        a {
+          margin: 0 5px;
+          color: white;
+          text-decoration: none;
+          font-size: 13px;
+          font-style: normal; /* 確保文字不顯示為斜體 */
+        }
+      }
+    }
+  }
+  .qr-code-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 100px;
+    // border: 1px solid yellowgreen;
+    .qr-code {
+      width: 100px;
+      height: 100px;
+      margin: 15px;
+
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white; /* Optional: to make the text visible on the background */
+    }
+  }
+}
