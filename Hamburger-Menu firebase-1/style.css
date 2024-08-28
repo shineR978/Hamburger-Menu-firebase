@@ -1,0 +1,256 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.off-screen-menu {
+  background-color: black;
+  height: 100vh;
+  width: 100%;
+  max-width: 300px;
+  position: fixed;
+  top: 0;
+  right: -450px;
+  display: flex;
+  flex-direction: column;
+  font-size: 3rem;
+  transition: right 0.5s ease;
+}
+.off-screen-menu h3 {
+  color: white;
+  font-size: 35px;
+  margin: 20px 20px;
+}
+.off-screen-menu .border-menu {
+  border-bottom: 1px solid white;
+  margin: 0 20px;
+}
+.off-screen-menu ul {
+  padding: 5px 0;
+  margin-bottom: 0;
+}
+.off-screen-menu ul li {
+  list-style-type: none;
+  color: white;
+  margin: 10px 20px;
+  font-size: 20px;
+  border: 1px solid white;
+  padding: 10px;
+  cursor: pointer;
+}
+.off-screen-menu ul li a {
+  margin: 0 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-style: normal; /* 確保文字不顯示為斜體 */
+}
+.off-screen-menu div.menu-icon {
+  display: flex;
+  margin-left: 20px;
+  justify-content: center;
+}
+.off-screen-menu div.menu-icon .bi {
+  color: white;
+  font-size: 20px;
+  opacity: 0.5;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.off-screen-menu.active {
+  position: fixed;
+  z-index: 3;
+  right: 0;
+}
+
+nav {
+  padding: 1rem;
+  display: flex;
+  background-color: black;
+}
+nav .ham-menu {
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+  position: relative;
+  cursor: pointer;
+}
+nav .ham-menu span {
+  height: 5px;
+  width: 100%;
+  background-color: white;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+}
+nav .ham-menu .bi-facebook {
+  color: white;
+  width: 30px;
+  height: 30px;
+}
+
+main section.backgroud-img {
+  min-height: 70vh;
+  background-image: url("./photo/big-round-table-with-different-side-dishes-it-with-soup-middle.jpg");
+  background-size: cover;
+  background-position: center;
+  transition: 2s ease-in-out;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main section.backgroud-img div.filter {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  min-height: 70vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main section.backgroud-img h3 {
+  color: white;
+  font-size: 2.5rem;
+  z-index: 1;
+}
+
+.ham-menu span:nth-child(1) {
+  top: 15%;
+  transform: translateX(-50%);
+}
+
+.ham-menu span:nth-child(3) {
+  top: 75%;
+  transform: translateX(-50%);
+}
+
+.ham-menu.active {
+  position: fixed;
+  z-index: 3;
+  top: 1rem;
+  right: 1rem;
+}
+
+.ham-menu.active span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ham-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.ham-menu.active span:nth-child(3) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+div.products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 10px;
+}
+div.products .product {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  margin: 10px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0px 10px rgba(150, 150, 150, 0.9);
+  overflow: hidden;
+}
+div.products .product img {
+  width: 100%;
+  height: 100%;
+}
+div.products .product .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  cursor: pointer;
+}
+div.products .product .overlay .text {
+  font-size: 20px;
+  text-align: center;
+}
+div.products .product:hover .overlay {
+  opacity: 1;
+}
+
+div.information {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: rgb(50, 50, 50);
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  min-height: 150px;
+}
+div.information .address {
+  width: 250px;
+  margin: 5px 5px;
+}
+div.information .address .bottom-address {
+  margin: 5px 5px;
+  padding-left: 1rem;
+  color: white;
+}
+div.information .address .bottom-address li {
+  list-style-type: none;
+}
+div.information .address .bottom-address p {
+  margin-bottom: 0px;
+}
+div.information .address .bottom-address i.bi {
+  display: flex; /* 使用 flexbox 佈局 */
+  align-items: center; /* 垂直居中對齊 */
+  text-decoration: none;
+}
+div.information .address .bottom-address i.bi a {
+  margin: 0 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-style: normal; /* 確保文字不顯示為斜體 */
+}
+div.information .qr-code-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 100px;
+}
+div.information .qr-code-container .qr-code {
+  width: 100px;
+  height: 100px;
+  margin: 15px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Optional: to make the text visible on the background */
+}/*# sourceMappingURL=style.css.map */
