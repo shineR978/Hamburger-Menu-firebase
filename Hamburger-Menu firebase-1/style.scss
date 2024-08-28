@@ -5,6 +5,8 @@
 }
 
 .off-screen-menu {
+  position: fixed;
+  z-index: 3;
   background-color: black;
   height: 100vh;
   width: 100%;
@@ -62,8 +64,6 @@
 }
 
 .off-screen-menu.active {
-  position: fixed; // 修改這裡
-  z-index: 3;
   right: 0; // 當 active 類存在時，菜單滑入屏幕
 }
 
@@ -143,10 +143,10 @@ main {
 
 // 漢堡菜單圖標轉換為一個 "X" 形狀
 .ham-menu.active {
-  position: fixed; // 修改這裡
+  // position: fixed; // 修改這裡
   z-index: 3;
-  top: 1rem; // 添加這裡，確保它在視窗內的固定位置
-  right: 1rem; // 添加這裡，確保它在視窗內的固定位置
+  // top: 1rem; // 添加這裡，確保它在視窗內的固定位置
+  // right: 1rem; // 添加這裡，確保它在視窗內的固定位置
 }
 
 .ham-menu.active span:nth-child(1) {
